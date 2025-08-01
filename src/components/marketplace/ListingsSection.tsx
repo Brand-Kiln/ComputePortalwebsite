@@ -294,7 +294,7 @@ const ListingsSection: React.FC = () => {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-32 object-cover rounded mb-3"
+                      className="w-full h-32 rounded mb-3"
                     />
 
                     <div className="flex items-center justify-between mb-2">
