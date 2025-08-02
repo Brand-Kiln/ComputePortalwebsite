@@ -15,8 +15,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { Heart } from "lucide-react";
-import ListingCard from "./ListingCard";
+import { Heart, FilterIcon } from "lucide-react";
 import MarketplaceFilters from "./MarketplaceFilters";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -24,108 +23,106 @@ const ListingsSection: React.FC = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [filter, setFilter] = useState<"all" | "compute" | "hardware">("all");
-  const itemsPerPage = 9; // 3 rows x 3 columns
+  const itemsPerPage = 9;
 
   const allListings = [
     {
       id: 1,
-      title: "NVIDIA RTX 4090 AI Training Kit",
-      provider: "TechFlow Labs",
-      price: "$749",
-      originalPrice: "$2,449",
-      rating: 4.9,
-      category: "Hardware",
+      title: "SuperCloud GPU Cluster",
+      provider: "Akash Network",
+      // price: "$749",
+      price: "$2.50 / Hour",
+      // originalPrice: "$2.50 / Hour",
+      rating: 4.8,
+      category: "GPU on Web3",
       description:
-        "Professional-grade GPU optimized for AI training and inference...",
-      image:
-        "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400",
+        "World’s leading decentralized supercloud. Affordable, high-performance GPU compute.",
+      image: "/Images/ss2.png",
       discount: "70%",
       inStock: true,
-      tags: ["AI Training", "Deep Learning", "CUDA", "+1"],
-      type: "hardware",
+      tags: ["Decentralized Compute", "AI", "Workloads", "GPU"],
+      type: "GPU on Web3",
     },
     {
       id: 2,
-      title: "AutoGPT Business Suite",
+      title: "NuNet network",
       provider: "AI Dynamics",
       price: "$179",
       originalPrice: "$799",
       rating: 4.7,
-      category: "Software",
+      category: "Compute Mesh",
       description:
-        "Complete autonomous AI agent software for business automation...",
-      image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400",
+        "SingularityDAO Ecosystem NuNet enables anyone to contribute and monetize unused compute resources",
+      image: "/Images/ss5.png",
       discount: "70%",
       inStock: true,
-      tags: ["Automation", "Business", "API", "+1"],
-      type: "compute",
+      tags: ["Decentralized Compute", "Distributed Devices"],
+      type: "Compute Mesh",
     },
     {
       id: 3,
-      title: "Custom Vision Training Platform",
-      provider: "VisionAI Corp",
+      title: "Aethir Network",
+      provider: "Aethir Edge Cloud Infrastructure",
       price: "$299",
       originalPrice: null,
-      rating: 4.8,
-      category: "Software",
+      rating: 4.7,
+      category: "Compute Mesh",
       description:
-        "No-code computer vision model training platform with drag-and...",
-      image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400",
+        "Aethir decentralizes cloud infrastructure, enabling powerful, scalable compute without centralized hyperscalers.",
+      image: "/Images/ss6.png",
       discount: null,
       inStock: true,
-      tags: ["Computer Vision", "No-Code", "Training", "+1"],
-      type: "compute",
+      tags: ["Decentralized Compute", "Distributed Devices"],
+      type: "Compute Mesh",
     },
     {
       id: 4,
-      title: "Quantum-AI Hybrid Processing Unit",
-      provider: "Quantum Dynamics",
+      title: "iagon",
+      provider: "Iagon Infrastructure",
       price: "$15,999",
       originalPrice: null,
       rating: 4.9,
       category: "Hardware",
       description:
-        "Revolutionary quantum-classical hybrid processor designed for next...",
-      image:
-        "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400",
+        "Iagon transforms idle storage across global devices into a decentralized cloud network",
+      image: "/Images/ss7.png",
       discount: null,
       inStock: false,
-      tags: ["Quantum Computing", "Hybrid", "Research", "+1"],
-      type: "hardware",
+      tags: ["Decentralized Compute", "Distributed Devices"],
+      type: "Compute Mesh",
     },
     {
       id: 5,
-      title: "Edge AI Optimization Toolkit",
-      provider: "EdgeTech Solutions",
+      title: "HyperCycle",
+      provider: "HyperCycle AI",
       price: "$239",
       originalPrice: "$799",
-      rating: 4.6,
+      rating: 4.7,
       category: "Software",
       description:
-        "Complete software suite for optimizing AI models for edge...",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400",
+        "HyperCycle is a layer-1 blockchain and protocol stack enabling AI-to-AI microtransactions at scale.",
+      image: "/Images/ss8.png",
       discount: "70%",
       inStock: true,
-      tags: ["Edge AI", "Mobile", "Optimization", "+1"],
-      type: "compute",
+      tags: ["Decentralized Compute", "Distributed Devices"],
+      type: "Compute Mesh",
     },
     {
       id: 6,
-      title: "ASIC Miner Pro Max",
-      provider: "CryptoMining Systems",
-      price: "$3,299",
+      title: "Cornucopia Node",
+      provider: "Cornucopias.io",
+      price: "$350.00",
       originalPrice: null,
-      rating: 4.5,
+      rating: 4.8,
       category: "Hardware",
       description:
-        "High-efficiency ASIC miner optimized for cryptocurrency mining...",
-      image:
-        "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=400",
+        "Power the Cornucopias metaverse with your own infrastructure node.",
+
+      image: "/Images/ss9.png",
       discount: null,
       inStock: true,
-      tags: ["Mining", "Cryptocurrency", "High Efficiency", "+1"],
-      type: "hardware",
+      tags: ["Web3", "Gaming", "Node Infrastructure"],
+      type: "Metaverse Node",
     },
     {
       id: 7,
@@ -195,21 +192,32 @@ const ListingsSection: React.FC = () => {
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h2 className="text-3xl font-bold mb-2">All Products</h2>
-            <p className="text-muted-foreground">
-              {filteredListings.length} products found
-            </p>
+        <div className="flex justify-between items-center mb-8 md:flex-row flex-col">
+          <div className="md:mb-0 mb-4 w-full flex items-center justify-between">
+            <div>
+              <h2 className="text-2xl font-bold mb-2">All Products</h2>
+              <p className="text-muted-foreground">
+                {filteredListings.length} products found
+              </p>
+            </div>
+            <Button
+              variant="outline"
+              onClick={() => setShowFilters(true)}
+              className="md:hidden flex items-center gap-2"
+            >
+              <FilterIcon className="h-4 w-4" />
+              Filters
+            </Button>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="flex gap-2">
+          <div className="w-full overflow-x-auto no-scrollbar">
+            <div className="flex md:justify-end justify-normal gap-2 whitespace-nowrap px-2 py-2">
               <Button
                 variant={filter === "compute" ? "default" : "outline"}
                 onClick={() => {
                   setFilter("compute");
                   setCurrentPage(1);
                 }}
+                className="flex-shrink-0"
               >
                 Compute
               </Button>
@@ -219,6 +227,7 @@ const ListingsSection: React.FC = () => {
                   setFilter("hardware");
                   setCurrentPage(1);
                 }}
+                className="flex-shrink-0"
               >
                 Hardware
               </Button>
@@ -228,41 +237,39 @@ const ListingsSection: React.FC = () => {
                   setFilter("all");
                   setCurrentPage(1);
                 }}
+                className="flex-shrink-0"
               >
                 View All
               </Button>
+              <div className="flex-shrink-0">
+                <Select defaultValue="relevance">
+                  <SelectTrigger className="w-48">
+                    <SelectValue placeholder="Sort by" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="relevance">Most Relevant</SelectItem>
+                    <SelectItem value="price-low">
+                      Price: Low to High
+                    </SelectItem>
+                    <SelectItem value="price-high">
+                      Price: High to Low
+                    </SelectItem>
+                    <SelectItem value="rating">Highest Rated</SelectItem>
+                    <SelectItem value="newest">Newest First</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
-            <Button
-              variant="outline"
-              onClick={() => setShowFilters(!showFilters)}
-              className="md:hidden"
-            >
-              Filters
-            </Button>
-            <Select defaultValue="relevance">
-              <SelectTrigger className="w-48">
-                <SelectValue placeholder="Sort by" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="relevance">Most Relevant</SelectItem>
-                <SelectItem value="price-low">Price: Low to High</SelectItem>
-                <SelectItem value="price-high">Price: High to Low</SelectItem>
-                <SelectItem value="rating">Highest Rated</SelectItem>
-                <SelectItem value="newest">Newest First</SelectItem>
-              </SelectContent>
-            </Select>
           </div>
         </div>
 
         <div className="flex gap-8">
           {/* Filters Sidebar */}
-          <div
-            className={`w-80 flex-shrink-0 ${
-              showFilters ? "block" : "hidden md:block"
-            }`}
-          >
-            <MarketplaceFilters onFilterChange={() => {}} />
-          </div>
+          <MarketplaceFilters
+            onFilterChange={() => {}}
+            mobileOpen={showFilters}
+            onMobileClose={() => setShowFilters(false)}
+          />
 
           {/* Listings Grid */}
           <div className="flex-1">
@@ -286,7 +293,7 @@ const ListingsSection: React.FC = () => {
 
                     {/* Category Badge - Top Right */}
                     <div className="absolute top-2 right-2 z-20 bg-black text-white text-xs px-2 py-1 rounded">
-                      {item.type === "hardware" ? "Hardware" : "Software"}
+                      {item.type}
                     </div>
                   </div>
 

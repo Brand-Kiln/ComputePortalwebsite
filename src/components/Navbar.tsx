@@ -1,4 +1,4 @@
-import React, { act, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   MoonIcon,
@@ -6,14 +6,29 @@ import {
   ShoppingCartIcon,
   UserIcon,
   WalletIcon,
+  MenuIcon,
+  XIcon,
 } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { Link, useLocation } from "react-router-dom";
-import { set } from "date-fns";
 
 const Navbar: React.FC = () => {
   const { theme, setTheme } = useTheme();
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const navLinks = [
+    { path: "/buyers-guide", label: "Buyers Guide" },
+    { path: "/sellers-guide", label: "Sellers Guide" },
+    { path: "/marketplace", label: "Marketplace" },
+    { path: "/knowledge-center", label: "Knowledge Center" },
+    { path: "/about", label: "About" },
+    { path: "/help", label: "Help" },
+  ];
 
   return (
     <nav className="bg-background/95 backdrop-blur-sm border-b border-border/50 px-4 py-3 sticky top-0 z-50">
@@ -33,57 +48,19 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        {/* Navigation Links */}
+        {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center space-x-6">
-          <Link
-            to="/buyers-guide"
-            className={`text-foreground hover:text-primary transition-colors ${
-              location.pathname === "/buyers-guide" ? "font-bold" : " "
-            }`}
-          >
-            Buyers Guide
-          </Link>
-          <Link
-            to="/sellers-guide"
-            className={`text-foreground hover:text-primary transition-colors ${
-              location.pathname === "/sellers-guide" ? "font-bold" : ""
-            }`}
-          >
-            Sellers Guide
-          </Link>
-
-          <Link
-            to="/marketplace"
-            className={`text-foreground hover:text-primary transition-colors ${
-              location.pathname === "/marketplace" ? "font-bold" : ""
-            }`}
-          >
-            Marketplace
-          </Link>
-          <Link
-            to="/knowledge-center"
-            className={`text-foreground hover:text-primary transition-colors ${
-              location.pathname === "/knowledge-center" ? "font-bold" : ""
-            }`}
-          >
-            Knowledge Center
-          </Link>
-          <Link
-            to="/about"
-            className={`text-foreground hover:text-primary transition-colors ${
-              location.pathname === "/about" ? "font-bold" : ""
-            }`}
-          >
-            About
-          </Link>
-          <Link
-            to="/help"
-            className={`text-foreground hover:text-primary transition-colors ${
-              location.pathname === "/help" ? "font-bold" : ""
-            }`}
-          >
-            Help
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`text-foreground hover:text-primary transition-colors ${
+                location.pathname === link.path ? "font-bold" : ""
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
         {/* Right Side Actions */}
@@ -135,6 +112,50 @@ const Navbar: React.FC = () => {
               <ShoppingCartIcon className="h-5 w-5 text-foreground" />
             </Button>
           </Link>
+
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleMenu}
+            className="md:hidden hover:bg-primary/10"
+          >
+            {isMenuOpen ? (
+              <XIcon className="h-5 w-5 text-foreground" />
+            ) : (
+              <MenuIcon className="h-5 w-5 text-foreground" />
+            )}
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden bg-background/95 backdrop-blur-sm overflow-hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen ? "max-h-screen py-4" : "max-h-0 py-0"
+        }`}
+      >
+        <div className="flex flex-col space-y-4 px-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`text-foreground hover:text-primary transition-colors py-2 ${
+                location.pathname === link.path ? "font-bold" : ""
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Button
+            variant="outline"
+            size="sm"
+            className="w-full hover:bg-primary/10 border-foreground/20 flex items-center justify-center"
+          >
+            <WalletIcon className="h-4 w-4 mr-2 text-foreground" />
+            Connect Wallet
+          </Button>
         </div>
       </div>
     </nav>

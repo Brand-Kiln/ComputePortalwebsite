@@ -1,32 +1,47 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { MessageCircleIcon, BookOpenIcon, MailIcon, PhoneIcon } from 'lucide-react';
-import AppLayout from '@/components/AppLayout';
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  MessageCircleIcon,
+  BookOpenIcon,
+  MailIcon,
+  PhoneIcon,
+} from "lucide-react";
+import AppLayout from "@/components/AppLayout";
 
 const Help: React.FC = () => {
   const faqs = [
     {
       question: "What is ComputePortal?",
-      answer: "ComputePortal is the world's first truly decentralized marketplace for compute power and hardware resources, bridging Web2 and Web3 ecosystems."
+      answer:
+        "ComputePortal is the world's first truly decentralized marketplace for compute power and hardware resources, bridging Web2 and Web3 ecosystems.",
     },
     {
       question: "How do I get started as a buyer?",
-      answer: "Simply browse our marketplace, connect your wallet or set up fiat payments, and start purchasing the compute or hardware resources you need."
+      answer:
+        "Simply browse our marketplace, connect your wallet or set up fiat payments, and start purchasing the compute or hardware resources you need.",
     },
     {
       question: "Can I sell my hardware on the platform?",
-      answer: "Yes! You can list your compute power or hardware resources and start earning by providing services to our global community."
+      answer:
+        "Yes! You can list your compute power or hardware resources and start earning by providing services to our global community.",
     },
     {
       question: "What payment methods do you accept?",
-      answer: "We accept both cryptocurrency payments and traditional fiat payments to make our platform accessible to everyone."
+      answer:
+        "We accept both cryptocurrency payments and traditional fiat payments to make our platform accessible to everyone.",
     },
     {
       question: "Is the platform secure?",
-      answer: "Absolutely. We use blockchain technology, smart contracts, and industry-standard security practices to ensure all transactions are safe and transparent."
-    }
+      answer:
+        "Absolutely. We use blockchain technology, smart contracts, and industry-standard security practices to ensure all transactions are safe and transparent.",
+    },
   ];
 
   return (
@@ -47,8 +62,10 @@ const Help: React.FC = () => {
         {/* Quick Help Options */}
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">How Can We Help?</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              How Can We Help?
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer">
                 <CardHeader>
                   <BookOpenIcon className="h-8 w-8 text-primary mx-auto mb-2" />
@@ -58,7 +75,9 @@ const Help: React.FC = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     Comprehensive guides and tutorials
                   </p>
-                  <Button variant="outline" size="sm">Browse Docs</Button>
+                  <Button variant="outline" size="sm">
+                    Browse Docs
+                  </Button>
                 </CardContent>
               </Card>
               <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer">
@@ -70,7 +89,9 @@ const Help: React.FC = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     Get instant help from our support team
                   </p>
-                  <Button variant="outline" size="sm">Start Chat</Button>
+                  <Button variant="outline" size="sm">
+                    Start Chat
+                  </Button>
                 </CardContent>
               </Card>
               <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer">
@@ -82,10 +103,15 @@ const Help: React.FC = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     Send us detailed questions via email
                   </p>
-                  <Button variant="outline" size="sm">Send Email</Button>
+                  <a href="mailto:connect@computeportal.io">
+                    <Button variant="outline" size="sm">
+                      Send Email
+                    </Button>
+                  </a>
                 </CardContent>
               </Card>
-              <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer">
+
+              {/* <Card className="text-center hover:shadow-lg transition-shadow cursor-pointer">
                 <CardHeader>
                   <PhoneIcon className="h-8 w-8 text-primary mx-auto mb-2" />
                   <CardTitle>Phone Support</CardTitle>
@@ -94,9 +120,11 @@ const Help: React.FC = () => {
                   <p className="text-sm text-muted-foreground mb-4">
                     Speak directly with our support team
                   </p>
-                  <Button variant="outline" size="sm">Call Now</Button>
+                  <Button variant="outline" size="sm">
+                    Call Now
+                  </Button>
                 </CardContent>
-              </Card>
+              </Card> */}
             </div>
           </div>
         </section>
@@ -104,14 +132,16 @@ const Help: React.FC = () => {
         {/* FAQ Section */}
         <section className="py-16 px-4 bg-muted/30">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Frequently Asked Questions
+            </h2>
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
-                  <AccordionContent>
-                    {faq.answer}
-                  </AccordionContent>
+                  <AccordionTrigger className="text-left">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
@@ -131,7 +161,9 @@ const Help: React.FC = () => {
                   <CardTitle>General Support</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-2">support@computeportal.com</p>
+                  <p className="text-muted-foreground mb-2">
+                    support@computeportal.com
+                  </p>
                   <p className="text-muted-foreground">+1 (555) 123-4567</p>
                 </CardContent>
               </Card>
@@ -140,7 +172,9 @@ const Help: React.FC = () => {
                   <CardTitle>Business Inquiries</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-2">business@computeportal.com</p>
+                  <p className="text-muted-foreground mb-2">
+                    business@computeportal.com
+                  </p>
                   <p className="text-muted-foreground">+1 (555) 987-6543</p>
                 </CardContent>
               </Card>

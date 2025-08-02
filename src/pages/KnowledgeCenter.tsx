@@ -14,8 +14,7 @@ const KnowledgeCenter: React.FC = () => {
       title: "Getting Started with Decentralized Computing",
       excerpt:
         "Learn the basics of decentralized computing and how it can revolutionize your tech projects.",
-      image:
-        "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop",
+      image: "/Images/cs2.webp",
       author: "Sarah Chen",
       date: "2024-01-15",
       category: "Tutorial",
@@ -74,8 +73,7 @@ const KnowledgeCenter: React.FC = () => {
       title: "Optimizing Performance in Distributed Systems",
       excerpt:
         "Learn how to optimize performance and scalability in distributed computing environments.",
-      image:
-        "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop",
+      image: "/Images/cs2.webp",
       author: "Lisa Wang",
       date: "2024-01-03",
       category: "Performance",
