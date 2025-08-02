@@ -164,7 +164,7 @@ const Help: React.FC = () => {
                   <p className="text-muted-foreground mb-2">
                     support@computeportal.com
                   </p>
-                  <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                  {/* <p className="text-muted-foreground">+1 (555) 123-4567</p> */}
                 </CardContent>
               </Card>
               <Card>
@@ -175,7 +175,7 @@ const Help: React.FC = () => {
                   <p className="text-muted-foreground mb-2">
                     business@computeportal.com
                   </p>
-                  <p className="text-muted-foreground">+1 (555) 987-6543</p>
+                  {/* <p className="text-muted-foreground">+1 (555) 987-6543</p> */}
                 </CardContent>
               </Card>
             </div>
