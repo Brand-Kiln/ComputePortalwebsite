@@ -14,7 +14,7 @@ const CategoriesSection: React.FC = () => {
             What You'll Find Here
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Explore our comprehensive marketplace of decentralized software and hardware resources.
+            Explore our comprehensive marketplace of software and hardware resources.
           </p>
         </div>
 

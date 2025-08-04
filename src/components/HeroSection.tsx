@@ -14,12 +14,12 @@ const HeroSection: React.FC = () => {
         {/* Main Heading */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent leading-tight">
           Power your Tech with the World's Best
-          <span className="block text-blue-600 dark:text-blue-400">Decentralized Compute Marketplace</span>
+          <span className="block text-blue-600 dark:text-blue-400">Web 3 Compute Marketplace</span>
         </h1>
 
         {/* Description */}
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-          Discover top-tier decentralized hardware and software from globally trusted providers. 
+          Discover top-tier hardware and software from globally trusted providers. 
           Transact securely with crypto or fiat and join our vibrant community of innovators 
           shaping the future of our digital world.
         </p>

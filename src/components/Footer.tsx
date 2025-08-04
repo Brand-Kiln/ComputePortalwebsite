@@ -76,6 +76,22 @@ const Footer: React.FC = () => {
                   Buy Software
                 </Link>
               </li>
+               <li>
+                <Link
+                  to="/sellers-guide"
+                  className="text-muted-foreground hover:text-primary"
+                >
+                  Sell Hardware
+                </Link>
+              </li>
+               <li>
+                <Link
+                  to="/sellers-guide"
+                  className="text-muted-foreground hover:text-primary"
+                >
+                  Sell Software
+                </Link>
+              </li>
             </ul>
           </div>
 

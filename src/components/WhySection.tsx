@@ -36,7 +36,7 @@ const WhySection: React.FC = () => {
             Why Choose Our Platform?
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Experience the future of decentralized commerce with our cutting-edge marketplace.
+            Experience the future of commerce with our cutting-edge marketplace.
           </p>
         </div>
 

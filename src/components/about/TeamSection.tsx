@@ -91,7 +91,7 @@ const TeamSection: React.FC = () => {
       country: "India",
       focus: "Founder & Product Head",
       description:
-        "Ranked among India's top 5 Brand-Tech pioneers (CXO-Look magazine, 2024), Manas is currently pursuing one of the earliest global PhDs on Web 3.0 and Metaverse Didactics. With 25 yrs avg. expertise of CXO roles across EU, MEA and India, Manas helps global enterprises bridge towards emergent-digital ecosystems. A published author and globally ranked blogger, Manas ensures customer centric product leadership as the CPO of ComputePortal.",
+        "Ranked among India's top 5 Brand-Tech pioneers (CXO-Look magazine, 2024), Manas is currently pursuing one of the earliest global PhDs on Web 3.0 and Metaverse Didactics. With 25 yrs avg. expertise of CXO roles, Manas helps global enterprises bridge towards emergent-digital ecosystems. A published author and globally ranked blogger, Manas ensures customer centric product leadership as the CPO of ComputePortal.",
       linkedinUrl: "https://www.linkedin.com/in/manasdewan/",
       imageUrl:
         "https://d64gsuwffb70l.cloudfront.net/6860d25c16551e9c1ce34e45_1752117809362_44e1f976.jpg",

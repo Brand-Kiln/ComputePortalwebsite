@@ -28,7 +28,7 @@ const GettingStartedSection: React.FC = () => {
                   <ShoppingCartIcon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">Start as a Buyer</h3>
-                <p className="text-muted-foreground">Find the perfect AI hardware and software for your needs</p>
+                <p className="text-muted-foreground">Find the perfect hardware and software for your needs</p>
               </div>
               
               <div className="space-y-4 mb-8">
