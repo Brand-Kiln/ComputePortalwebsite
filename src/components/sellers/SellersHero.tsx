@@ -14,10 +14,10 @@ const SellersHero: React.FC = () => {
       <div className="relative max-w-6xl mx-auto text-center">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent leading-tight mt-8">
           The world needs your Innovative Compute and Hardware… here's how to
-          reach it to them
+          reach them
         </h1>
         <p className="text-xl text-muted-foreground mb-8">
-          Whether you're new to decentralized tech or an experienced provider,
+          Whether you're new to Web 3 tech or an experienced provider,
           our marketplace makes it easy to list and monetize your compute and
           hardware resources for AI projects.
         </p>

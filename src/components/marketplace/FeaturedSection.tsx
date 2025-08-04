@@ -89,25 +89,25 @@ const FeaturedSection: React.FC = () => {
       rating: 4.8,
       category: "Graphics Card",
       description:
-        "High-performance GPU for AI training and gaming applications",
+        "Run your Stake Pool with confidence from your own location",
       image: "/Images/ss3.png",
       discount: "11%",
       inStock: true,
       tags: ["GPU", "AI", "Gaming"],
       type: "hardware",
     },
-    {
+     {
       id: 6,
-      title: "T-Adam",
-      provider: "Flux Point Studio",
-      price: "$15/month",
+      title: "ComputePortal VPS",
+      provider: "Compute Portal",
+      price: "Coming Soon",
       rating: 4.7,
       category: "AI Finance",
       description:
-        "AI-powered, self-optimizing, decentralized market-maker. For next-gen DeFi traders and institutions",
-      image: "/Images/ss4.png",
+        "A decentralized, edge-powered Virtual Private Server for developers, builders, and businesses.",
+      image: "/Images/CP VPS.jpg",
       inStock: true,
-      tags: ["AI Trading", "DeFi", "Market Intelligence"],
+      tags: ["Decentralized Hosting", "VPS", "Edge Compute"],
       type: "hardware",
     },
   ];

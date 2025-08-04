@@ -28,16 +28,16 @@ const ListingsSection: React.FC = () => {
   const allListings = [
     {
       id: 1,
-      title: "SuperCloud GPU Cluster",
-      provider: "Akash Network",
+      title: "Decentralized Physical Devices",
+      provider: "Cardano Network",
       // price: "$749",
-      price: "$2.50 / Hour",
+      price: "$150 / Month",
       // originalPrice: "$2.50 / Hour",
       rating: 4.8,
       category: "GPU on Web3",
       description:
-        "World’s leading decentralized supercloud. Affordable, high-performance GPU compute.",
-      image: "/Images/ss2.png",
+        "Run your SPO, host your code on a trustless/secure network built for Cardano",
+      image: "/Images/changes.jpeg",
       discount: "70%",
       inStock: true,
       tags: ["Decentralized Compute", "AI", "Workloads", "GPU"],
