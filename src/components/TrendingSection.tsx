@@ -7,69 +7,90 @@ const TrendingSection: React.FC = () => {
   const trendingItems = [
     {
       id: 1,
-      title: "NVIDIA RTX 4090 AI Training Kit",
-      description:
-        "Professional-grade GPU optimized for AI training and inference.",
-      price: "$749",
-      originalPrice: "$2,449",
-      discount: "-70%",
-      image:
-        "https://d64gsuwffb70l.cloudfront.net/6860d25c16551e9c1ce34e45_1752052934165_853dd8be.png",
+      title: "ComputePortal LLM (Alpha)",
+      provider: "Compute Portal",
+      price: "$0.00/month",
       rating: 4.9,
-      provider: "TechFlow Labs",
-      tags: ["AI Training", "Deep Learning", "CUDA"],
+      category: "Decentralized AI",
+      description:
+        "Free for Alpha Testers. Your private AI assistant — powered by decentralized edge compute.",
+      image: "/Images/ss1.png",
+      inStock: true,
+      tags: ["LLM", "Edge AI"],
+      type: "software",
     },
     {
       id: 2,
-      title: "Cloud GPU Cluster Pro",
-      description: "Scalable GPU cluster for large-scale AI model training.",
-      price: "$1,299",
-      originalPrice: "$3,999",
-      discount: "-68%",
+      title: "Smart Life Healthcare AI",
+      provider: "MedTech Solutions",
+      price: "$299/month",
+      rating: 4.7,
+      category: "Software",
+      description:
+        "Point of Medical care services at home with AI-powered diagostics",
       image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop",
-      rating: 4.8,
-      provider: "CloudTech Solutions",
-      tags: ["Cluster", "Scalable", "Enterprise"],
+        "https://d64gsuwffb70l.cloudfront.net/6860d25c16551e9c1ce34e45_1752059753013_e15315a0.jpg",
+      inStock: true,
+      tags: ["Healthcare", "AI", "Diagnostics"],
+      type: "software",
     },
     {
       id: 3,
-      title: "Edge Computing Node",
-      description: "Compact edge device for distributed AI inference.",
-      price: "$399",
-      originalPrice: "$899",
-      discount: "-56%",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop",
-      rating: 4.7,
-      provider: "EdgeTech Inc",
-      tags: ["Edge AI", "IoT", "Compact"],
+      title: "SuperCloud GPU Cluster",
+      provider: "Akash Network",
+      price: "$2.50/month",
+      rating: 4.8,
+      category: "GPU on Web3",
+      description:
+        "World’s leading decentralized supercloud. Affordable, high-performance GPU compute.",
+      image: "/Images/ss2.png",
+      inStock: true,
+      tags: ["Decentralized Compute", "AI Workloads", "GPU"],
+      type: "software",
     },
     {
       id: 4,
-      title: "Blockchain Mining Rig",
-      description: "High-performance mining setup for blockchain operations.",
-      price: "$2,199",
-      originalPrice: "$4,999",
-      discount: "-56%",
-      image:
-        "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=300&h=200&fit=crop",
-      rating: 4.6,
-      provider: "CryptoHardware Co",
-      tags: ["Mining", "Blockchain", "ASIC"],
+      title: "Hyper AI Box",
+      provider: "HyperCycle AI",
+      price: "$1,350/month",
+      rating: 4.9,
+      category: "AI Hardware",
+      description:
+        "Advanced AI processing unit for edge computing and machine learning",
+      image: "/Images/ss.png",
+      inStock: true,
+      tags: ["AI", "Edge", "Processing"],
+      type: "hardware",
     },
     {
       id: 5,
-      title: "Quantum Computing Access",
-      description: "Cloud access to quantum computing resources.",
-      price: "$999",
-      originalPrice: "$2,999",
-      discount: "-67%",
-      image:
-        "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=300&h=200&fit=crop",
-      rating: 4.9,
-      provider: "QuantumCloud Labs",
-      tags: ["Quantum", "Research", "Advanced"],
+      title: "Cardano Home Portal",
+      provider: "Cardano",
+      price: "$1,599",
+      originalPrice: "$1,950/month",
+      rating: 4.8,
+      category: "Graphics Card",
+      description:
+        "High-performance GPU for AI training and gaming applications",
+      image: "/Images/ss3.png",
+      discount: "11%",
+      inStock: true,
+      tags: ["GPU", "AI", "Gaming"],
+      type: "hardware",
+    },
+    {
+      id: 6,
+      title: "ComputePortal VPS",
+      provider: "Compute Portal",
+      price: "Coming Soon",
+      rating: 4.7,
+      category: "AI Finance",
+      description:
+        "A decentralized, edge-powered Virtual Private Server for developers, builders, and businesses. Private environments, and full root access.",
+      image: "/Images/CP VPS.jpg",
+      inStock: true,
+      tags: ["Decentralized Hosting", "VPS", "Edge Compute"],
+      type: "hardware",
     },
   ];
 
@@ -83,10 +104,6 @@ const TrendingSection: React.FC = () => {
               key={item.id}
               className="min-w-[300px] relative hover:shadow-lg transition-shadow"
             >
-              {/* <div className="absolute top-2 right-2 bg-yellow-500 text-white text-xs px-2 py-1 rounded z-10">
-                Coming Soon
-              </div> */}
-
               <div className="absolute top-0 left-0 z-10 rotate-90">
                 <img src="/Images/cs.png" className="w-20" />
               </div>
@@ -99,7 +116,7 @@ const TrendingSection: React.FC = () => {
                 />
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-red-500 font-bold text-sm">
-                    {item.discount}
+                    {item.discount || ""}
                   </span>
                   <div className="flex items-center">
                     <span className="text-yellow-500 text-sm">★</span>
@@ -126,12 +143,14 @@ const TrendingSection: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-lg font-bold">{item.price}</span>
-                    <span className="text-sm text-muted-foreground line-through ml-2">
-                      {item.originalPrice}
-                    </span>
+                    {item.originalPrice && (
+                      <span className="text-sm text-muted-foreground line-through ml-2">
+                        {item.originalPrice}
+                      </span>
+                    )}
                   </div>
                   <span className="text-green-600 text-sm font-medium">
-                    In Stock
+                    {item.inStock ? "In Stock" : "Out of Stock"}
                   </span>
                 </div>
               </CardContent>

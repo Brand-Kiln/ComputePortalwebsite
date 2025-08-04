@@ -28,10 +28,10 @@ const BuyersGuide: React.FC = () => {
         <section className="py-20 px-4">
           <div className="relative max-w-6xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent leading-tight mt-8">
-              Blockchain-based Computing, Made Simple
+              Compute Resources, Made Simple
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Whether you're new to decentralized tech or a seasoned pro, our
+              Whether you're new to web 3 tech or a seasoned pro, our
               marketplace makes it easy to find and use powerful computing
               resources for your projects.
             </p>
